@@ -1,0 +1,72 @@
+plugins {
+    id "us.kirchmeier.capsule" version "1.0.2"
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'maven'
+
+mainClassName = 'com.bakkenbaeck.token.headless.TokenHeadlessClient'
+
+group = 'com.github.tokenbrowser'
+version '0.1.2'
+
+compileJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+    maven {
+        url "https://raw.github.com/AsamK/maven/master/releases/"
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'token-headless-client',
+                'Implementation-Version': version,
+                'Main-Class': 'com.bakkenbaeck.token.headless.TokenHeadlessClient'
+    }
+}
+
+task TokenHeadlessClientCapsule(type: FatCapsule) {
+    applicationClass 'com.bakkenbaeck.token.headless.TokenHeadlessClient'
+}
+
+dependencies {
+
+    compile 'org.slf4j:slf4j-simple:1.7.22'
+    compile 'org.yaml:snakeyaml:1.17'
+    compile 'com.github.turasa:signal-service-java:2.4.4_unofficial_1'
+    //compile 'org.whispersystems:signal-service-java:2.4.7'
+    compile 'redis.clients:jedis:2.9.0'
+    compile('org.bitcoinj:bitcoinj-core:0.14.3') {
+        exclude module: 'okhttp'
+    }
+
+    compile 'org.apache.tika:tika-core:1.14'
+
+    compile 'com.github.spullara.cli-parser:cli-parser:1.1.2'
+    compile 'org.bouncycastle:bcprov-jdk15on:1.55'
+
+    compile 'org.postgresql:postgresql:9.4.1212'
+    compile 'org.xerial:sqlite-jdbc:3.7.2'
+    compile 'org.flywaydb:flyway-core:4.2.0'
+
+    compile 'com.squareup.okhttp3:okhttp:3.5.0'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-moshi:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.5.0'
+    compile "io.reactivex.rxjava2:rxjava:2.0.5"
+    compile 'com.squareup.moshi:moshi:1.3.1'
+    compile 'com.madgag.spongycastle:core:1.54.0.0'
+    compile 'com.madgag.spongycastle:prov:1.54.0.0'
+
+    compile 'com.fasterxml.jackson.core:jackson-core:2.8.5'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.8.5'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.8.5'
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}

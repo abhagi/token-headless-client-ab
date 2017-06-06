@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Class-Path: orchid-1.2.1.jar signal-protocol-java-2.4.0.jar protobuf-j
+ ava-2.6.1.jar signal-service-java-2.4.4_unofficial_1.jar jackson-anno
+ tations-2.8.5.jar prov-1.54.0.0.jar libphonenumber-8.0.0.jar jedis-2.
+ 2.1.jar jackson-core-2.8.5.jar okhttp-3.5.0.jar httpcore-4.4.jar okio
+ -1.11.0.jar commons-pool-1.6.jar jcip-annotations-1.0.jar junit-4.11.
+ jar commons-codec-1.9.jar scrypt-1.4.0.jar core-1.54.0.0.jar slf4j-ap
+ i-1.7.20.jar bitcoinj-core-0.14.3.jar jsr305-2.0.1.jar bcprov-jdk15on
+ -1.55.jar curve25519-java-0.3.0.jar httpclient-4.4.jar jackson-databi
+ nd-2.8.5.jar commons-logging-1.2.jar guava-18.0.jar hamcrest-core-1.3
+ .jar okhttp-2.2.0.jar
+Main-Class: com.bakkenbaeck.token.headless.TokenHeadlessClient
+
